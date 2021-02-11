@@ -9,7 +9,7 @@ If the ```ms-DS-Machine-Account-Quota``` attribute value is default and there is
 2. Read ms-mcs-admpwd attribute via PowerView.ps1 (if you are still a member of local administrators after updating GPO)
 * ``Get-LapsLocalAdminPassword -disableDefender``
 
-3. Read ms-mcs-admpwd attribute via AdmPwd.PS (if you are not a member of local administrators after updating GPO)
+3. Read ms-mcs-admpwd attribute via AdmPwd.PS (if you are not a member of local administrators after updating GPO) (You must install AdmPwd.PS in the step 1)
 * ``Get-LapsAdmPwd -LapsInstalled``
 
 
