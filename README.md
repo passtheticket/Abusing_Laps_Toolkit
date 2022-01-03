@@ -32,5 +32,7 @@ If the ```ms-DS-Machine-Account-Quota``` attribute value is default, there is no
 Microsoft LAPS installation document is updated. So you can make configuration according to Microsoft LAPS_OperationsGuide.docx and LAPS_TechnicalSpecification documents. https://www.microsoft.com/en-us/download/confirmation.aspx?id=46899
 If Laps Administrator Password Solution is used, set ms-ds-machine-account-quota as "0" or delegation must be applied a user group for adding computer to domain. Otherwise user can add computer to domain and read local admin user password, define password complexity via LAPS misconfiguration. 
 
+![alt text](https://github.com/passtheticket/Abusing_Laps_Toolkit/blob/main/laps_operations_guide.PNG)
+
 ## Details
 https://docs.unsafe-inline.com/unsafe/abusing-laps
