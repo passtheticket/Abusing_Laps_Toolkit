@@ -1,7 +1,7 @@
 # Abusing Laps Toolkit
 
 ## Introduction
-If the ```ms-DS-Machine-Account-Quota``` attribute value is default and there is no delegation about domain join permissions to add computer to Active Directory , a domain user can add computer account to domain using the ```ms-ds-machine-account-quota``` attribute .  So that domain user reads password (```ms-mcs-admpwd```) of local administrator user and uses the password for persistence. The user can bypass GPO restrictions obtaining password of local admin user. For example, user can edit registry settings or add own account to local administrators group after GPO which removes undefined users from local administrators group.
+If the ```ms-DS-Machine-Account-Quota``` attribute value is default and there is no delegation about domain join permissions to add computer to Active Directory , a domain user can add computer account to domain using the ```ms-ds-machine-account-quota``` attribute .  The domain user reads password (```ms-mcs-admpwd```) of local administrator user for the added host after LAPS is installed and uses the password for persistence. The user can bypass GPO restrictions obtaining password of local admin user. For example, user can edit registry settings or add own account to local administrators group after GPO which removes undefined users from local administrators group.
 
 1. Open non-domain joined Windows virtual machine.
 2. Download LAPS.x64.msi and install it with powershell module extension (AdmPwd.PS)
