@@ -26,8 +26,16 @@ If the ```ms-DS-Machine-Account-Quota``` attribute value is default and there is
      ```powershell
      Get-LapsAdmPwd -LapsInstalled
      ```
-
-
+## Vulnerable Situations
+1. A domain user can escalate privilege over computer that was added by own when a laps gpo is applied to computer. (documented in this blog):<br>
+   a. The machine account password change is initiated by the computer every 30 days by default.<br>
+   b. The restricted groups gpo can remove the user from local administrators group.<br>
+   The user still can escalate privilege to local admin reading `ms-mcs-admpwd` after above two situations.<br>
+   
+2. The Laps gpo is applied to `PC` organizational unit and `lapsAdmin` group delegated for LAPS management.<br>
+   The user has adding computer right to `PC` organizational unit and is not member of `lapsAdmin` group.<br>
+   The user can read `ms-mcs-admpwd` attribute of computer that was added by own.<br>
+   
 ## Mitigation
 Microsoft LAPS installation document is updated. So you can make configuration according to Microsoft LAPS_OperationsGuide.docx and LAPS_TechnicalSpecification documents. https://www.microsoft.com/en-us/download/confirmation.aspx?id=46899
 If Laps Administrator Password Solution is used, set ms-ds-machine-account-quota as "0" or delegation must be applied a user group for adding computer to domain. Otherwise user can add computer to domain and read local admin user password, define password complexity via LAPS misconfiguration. 
